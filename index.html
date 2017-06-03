@@ -22,7 +22,7 @@
 <body>
 	<div class="wrap">
 		<div class="count"></div>
-		<div id="catainer"><img id="catImg" src="kitten1.jpg"></div>
+		<div id="catainer"><img id="catImg" src="img/kitten1.jpg"></div>
 	</div>
 </body>
 <script>
@@ -33,10 +33,10 @@
   	var catainer = document.getElementById('catainer');
   	document.addEventListener('click', function() {
 	  	// toggle kitten image with each click
-			if(catainer.innerHTML=='<img id="catImg" src="kitten1.jpg">') {
-				catainer.innerHTML='<img id="catImg" src="kitten2.jpg">';
+			if(catainer.innerHTML=='<img id="catImg" src="img/kitten1.jpg">') {
+				catainer.innerHTML='<img id="catImg" src="img/kitten2.jpg">';
 			} else {
-				catainer.innerHTML='<img id="catImg" src="kitten1.jpg">';
+				catainer.innerHTML='<img id="catImg" src="img/kitten1.jpg">';
 			}
 			
 	  })
