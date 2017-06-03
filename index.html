@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Click for Cute</title>
+	<style>
+		html,
+		body,
+		.wrap,
+		.catainer {
+			margin: 0;
+			padding: 0;
+		}
+		#catImg {
+			display: block;
+			width: 100vw;
+			height: auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="count"></div>
+		<div id="catainer"><img id="catImg" src="kitten1.jpg"></div>
+	</div>
+</body>
+<script>
+
+	document.addEventListener("DOMContentLoaded", function() { 
+  	// listen for clicks
+  	var catImg = document.getElementById('catImg');
+  	var catainer = document.getElementById('catainer');
+  	document.addEventListener('click', function() {
+	  	// toggle kitten image with each click
+			if(catainer.innerHTML=='<img id="catImg" src="kitten1.jpg">') {
+				catainer.innerHTML='<img id="catImg" src="kitten2.jpg">';
+			} else {
+				catainer.innerHTML='<img id="catImg" src="kitten1.jpg">';
+			}
+			
+	  })
+});
+</script>
+</html>
