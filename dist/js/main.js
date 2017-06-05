@@ -1,13 +1,13 @@
-/*! PizzaWebPageOptimization - v - 2017-06-03 */document.addEventListener("DOMContentLoaded", function() { 
+/*! PizzaWebPageOptimization - v - 2017-06-05 */document.addEventListener("DOMContentLoaded", function() { 
   // listen for clicks
-  var catImg = document.getElementById('catImg');
-  var catainer = document.getElementById('catainer');
-  document.addEventListener('click', function() {
+  var catainer1 = document.getElementById('catainer1');
+  var catainer2 = document.getElementById('catainer2');
+  catainer1.addEventListener('click', function() {
     // toggle kitten image with each click
-    if(catainer.innerHTML=='<img id="catImg" src="dist/images_src/kitten1.jpg">') {
-      catainer.innerHTML='<img id="catImg" src="dist/images_src/kitten2.jpg">';
+    if(catainer1.innerHTML=='<img class="img-responsive" alt="Responsive image" src="dist/images_src/kitten1.jpg">') {
+      catainer1.innerHTML='<img class="img-responsive" alt="Responsive image" src="dist/images_src/kitten2.jpg">';
     } else {
-      catainer.innerHTML='<img id="catImg" src="dist/images_src/kitten1.jpg">';
+      catainer1.innerHTML='<img class="img-responsive" alt="Responsive image" src="dist/images_src/kitten1.jpg">';
     }
     
   })
