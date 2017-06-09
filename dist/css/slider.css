@@ -37,7 +37,7 @@ body {
 }
 
 #navbar-main {
-  background: #eee;
+  background: #fff;
 }
 
 #navbar-main h4 {
@@ -47,4 +47,9 @@ body {
 
 #navbar-main ul li a {
   border-radius: 0;
+}
+
+/* HS */
+button.toggle-button.btn.btn-primary.btn-lg {
+  margin: 3rem 0;
 }

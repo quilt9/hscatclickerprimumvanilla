@@ -8,9 +8,8 @@ var imgGroup = [
 
 // HTML for one image
 var imgRow = '<div class="row"></div>';
-var imgContainer = '<div class="container col-md-6"></div>';
-var imgHeader = '<h2><span class="counter">1</span> Clicks</h2>';
-var imgPict = '<img class="img-fluid" alt="Responsive image" src="%data%"/>';
-
-
-  
+var imgContainer = '<div id="" class="container cat-catainer"><div class="card card-inverse"></div></div><!-- catainer1 -->';
+var imgPict = '<img class="card-img img-fluid" alt="Card responsive image" src="%data%">';
+var imgCard = '<div class="card-img-overlay"></div>';
+var imgCardTitle = '<h4 class="card-title"><span class="click-counter"></span> <span class="larger-text heart">&hearts;</span> <span class="element-name">%data%</span></h4>';
+             
