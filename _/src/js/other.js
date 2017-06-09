@@ -1,10 +1,31 @@
 // Images Array
-var imgGroup = [
-	'dist/images_src/kitten1.jp',
-	'dist/images_src/kitten2.jp',
-	'dist/images_src/kitten3.jp',
-	'dist/images_src/kitten4.jp'
-];
+var catGroup = {
+	"cat1": {
+		"name": "Orson Carte",
+		"catPict": "dist/images_src/kitten1.jpg",
+		"catPictAlt": "Cute kitten staring at you with love"
+	},
+	"cat2": {
+		"name": "Warren Peace",
+		"catPict": "dist/images_src/kitten2.jpg",
+		"catPictAlt": "Fury cat defending her food"		
+	},
+	"cat3": {
+	"name": "Jack Paw",
+	"catPict": "dist/images_src/kitten3.jpg",
+	"catPictAlt": "Grey cat readying to scratch"
+	},
+	"cat4": {
+		"name": "Carl E. Bird",
+		"catPict": "dist/images_src/kitten4.jpg",
+		"catPictAlt": "Cat about to dose off"		
+	},
+	"cat5": {
+	"name": "Furry Dan",
+	"catPict": "dist/images_src/kitten5.jpg",
+	"catPictAlt": "Cat laying on its side and relaxing"
+	}
+};
 
 // HTML for one image
 var imgRow = '<div class="row"></div>';
