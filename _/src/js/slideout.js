@@ -16,9 +16,7 @@ slideout.close();
 document.querySelector('.toggle-button').addEventListener('click', function() {
   slideout.toggle();
   if(slideout.isOpen()){
-    alert("You Opened!");
   }else{
-    alert("You Closed!");
   }
 });
 
