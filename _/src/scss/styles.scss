@@ -1,16 +1,15 @@
-@import "normalize";
 //bootstrap
 @import "scss/bootstrap";
 @import "scss/bootstrap-grid";
+//@import "scss/nav";
 // typography
 //@import "base/typography";
  
 // compass
-@import "compass";
+//@import "compass";
  
 // import files
 //@import "base/import";
-
 
 /** {
   outline: 1px solid red !important;
@@ -20,6 +19,8 @@
   -moz-box-sizing: border-box;
   -box-sizing: border-box;
 }
+
+
 
 
 

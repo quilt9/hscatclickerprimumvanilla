@@ -113,20 +113,9 @@ module.exports = function(grunt) {
     cssmin: {
       combine: {
         files: {
-          'dist/css/styles.min.css': ['dist/css/*.css']
+          'dist/css/styles.min.css': ['dist/css/styles.css']
         }
       }
-      /*
-      target: {
-        files: [{
-          expand: true,
-          cwd: 'dist/css',
-          src: ['dist/css/*.css', '!*.min.css'],
-          dest: 'dist/css',
-          ext: '.min.css'
-        }]
-      }
-      */
     }, //cssmin
     htmlmin: {                                     // Task
       dist: {                                      // Target
@@ -149,9 +138,10 @@ module.exports = function(grunt) {
           tasks: ['sass','cssmin']
       }, //sass
       html: {
-        files: ["cat.html"]
+        files: ["cat.html"],
+        tasks: ["htmlmin"]
       } //html
     } //watch
 	}); //initConfig
-	grunt.registerTask("default",['htmlmin', 'uglify', 'clean', 'mkdir', 'copy', 'responsive_images','watch']);
+	grunt.registerTask("default",['htmlmin', 'concat', 'uglify', 'clean', 'mkdir', 'copy', 'responsive_images', 'watch']);
 }; // exports
