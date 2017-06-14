@@ -4,7 +4,6 @@ $(function(){
   var model = {
     /* 4 */
     currentCat: null,
-
   	cats: [
       {
         clickCount: 0,
@@ -73,6 +72,8 @@ $(function(){
 
 
   /* ============== VIEW ============= */
+  // Visual - create a list of cats by name
+
   var catListView = {
     /* 7 */
     init: function() {
@@ -94,10 +95,11 @@ $(function(){
       for(i=0; i<cats.length; i++) {
         // this is the cat we're currently looping over
         cat = cats[i];
-          //create a new cat list item and set its text
+          // create a new cat list item and set its text
           elem = document.createElement('li');
           elem.textContent = cat.name;
           // set up click function for each cat element
+          /* Interaction - When a cat name is clicked in the list, the cat display area should update to show the data for the selected cat. */
           elem.addEventListener('click', (function(catCopy) {
             return function() {
               // setCurrentCat from the octopus
@@ -115,6 +117,7 @@ $(function(){
   };
 
   /* 11 */
+  // Visual - create an area to display the selected cat
   var catDisplayView = {
     init: function() {
       // store pointers to our DOM elements for easy access later
@@ -123,14 +126,14 @@ $(function(){
       this.catImageElem = document.getElementById('cat-img');
       this.countElem = document.getElementById('cat-count');
       // set up click event to cat container
+      /* Interaction - The number of clicks in the cat area should be unique to each cat, and should increment when the cat's picture is clicked. */
       this.catElem.addEventListener('click', function() {
         // increment the current cat's counter from octopus
         /* 12 */
-        console.log("Seriously.");
         octopus.incrumentCounter();
       });
       // render this view (update the DOM elements with the right values)
-      /* 13 */  
+      /* 13 */
       this.render();
     },
     /* 13 */
@@ -138,8 +141,11 @@ $(function(){
       // update the DOM elements with values from the current cat
       /* 14 */
       var currentCat = octopus.getCurrentCat();
+      // Visual - create text showing the number of clicks
       this.countElem.textContent = currentCat.clickCount;
+      // Visual - create the cat's name
       this.catNameElem.textContent = currentCat.name;
+      // Visual - create a picture of the cat
       this.catImageElem.src = currentCat.imgSrc;
       this.catImageElem.alt = currentCat.imgAlt;
     }
