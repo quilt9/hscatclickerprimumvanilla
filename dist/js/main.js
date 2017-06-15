@@ -164,40 +164,34 @@ var adminView = {
     this.inputCatCount = document.getElementById('inputCatCount');
     // Make sure the admin panel is hidden
     this.adminPanel.style.display = 'none';
+    this.render();
+  },
+  render: function() {
+    // setCurrentCat from the octopus
+    var catInfo = octopus.getCurrentCat();
+    // Visual - input text cat's name
+    this.inputCatName.value = catInfo.name;
+    // Visual - input text cat image url
+    this.inputCatImgSrc.value = catInfo.imgSrc;
+    // Visual - input text the number of clicks
+    this.inputCatCount.value = catInfo.clickCount;
     // Visual - When the admin button is clicked
     this.adminButton.addEventListener('click', function() {
       // Visual - the admin area should appear
       document.getElementById('admin-container').style.display = 'block';
     });
+    // Visual - inputs filled in for the currently-selected cat.
+    //this.render();
+  }
+/*
+  cancel: function() {
     // Visual - When the cancel button in the admin area is pressed, the admin area disappears.
     this.adminCancel.addEventListener('click', function() {
       document.getElementById('admin-container').style.display = 'none';
     });
-    // Visual - inputs filled in for the currently-selected cat.
-    this.render();
-  },
-  render: function() {
-    // update the DOM elements with values from the current cat
-    var currentCat = octopus.getCurrentCat();
-    // Visual - input text cat's name
-    this.inputCatName.value = currentCat.name;
-    // Visual - input text cat image url
-    this.inputCatImgSrc.value = currentCat.imgSrc;
-    // Visual - input text the number of clicks
-    this.inputCatCount.value = currentCat.clickCount;
+
   }
-  /*
-  update: function() {
-    this.adminSave.addEventListener('click', function() {
-      console.log("Saved.");
-      this.inputCatName.value = input.value;
-      // Visual - input text cat image url
-      this.inputCatImgSrc.value = input.value;
-      // Visual - input text the number of clicks
-      this.inputCatCount.value = input.value;
-    });
-  }
-  */
+*/
 };
 
 
