@@ -1,4 +1,4 @@
-/*! clickcatapp - v - 2017-06-14 */$(function(){
+/*! clickcatapp - v - 2017-06-15 */$(function(){
 
   /* ============= MODEL ============= */
   var model = {
@@ -63,6 +63,7 @@
     incrumentCounter: function() {
       model.currentCat.clickCount++;
       catDisplayView.render();
+      adminView.render();
     },
     /* 14 */
     getCurrentCat: function() {
@@ -153,6 +154,7 @@
 /* 15 */
 var adminView = {
   init: function() {
+    // store pointers to our DOM elements for easy access later    
     this.adminButton = document.getElementById('admin-button');
     this.adminPanel = document.getElementById('admin-container');
     this.adminSave = document.getElementById('admin-save');
@@ -184,6 +186,18 @@ var adminView = {
     // Visual - input text the number of clicks
     this.inputCatCount.value = currentCat.clickCount;
   }
+  /*
+  update: function() {
+    this.adminSave.addEventListener('click', function() {
+      console.log("Saved.");
+      this.inputCatName.value = input.value;
+      // Visual - input text cat image url
+      this.inputCatImgSrc.value = input.value;
+      // Visual - input text the number of clicks
+      this.inputCatCount.value = input.value;
+    });
+  }
+  */
 };
 
 

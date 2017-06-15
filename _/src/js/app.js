@@ -63,6 +63,7 @@ $(function(){
     incrumentCounter: function() {
       model.currentCat.clickCount++;
       catDisplayView.render();
+      adminView.render();
     },
     /* 14 */
     getCurrentCat: function() {
@@ -153,6 +154,7 @@ $(function(){
 /* 15 */
 var adminView = {
   init: function() {
+    // store pointers to our DOM elements for easy access later    
     this.adminButton = document.getElementById('admin-button');
     this.adminPanel = document.getElementById('admin-container');
     this.adminSave = document.getElementById('admin-save');
@@ -183,10 +185,8 @@ var adminView = {
     this.inputCatImgSrc.value = currentCat.imgSrc;
     // Visual - input text the number of clicks
     this.inputCatCount.value = currentCat.clickCount;
-  },
-  update: function() {
-    
   }
+
 };
 
 
