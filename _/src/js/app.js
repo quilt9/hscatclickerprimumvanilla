@@ -161,7 +161,6 @@ $(function(){
       this.inputCatImgSrc.value = currentCat.imgSrc;
       // Visual - input text the number of clicks
       this.inputCatCount.value = currentCat.clickCount;
-      console.log("Back to square one.");
     }
   };
 
@@ -170,12 +169,12 @@ $(function(){
     init: function() {
       // store pointers to our DOM elements for easy access later   
       this.adminPanel = document.getElementById('admin-container'); 
-      //this.adminSave = document.getElementById('admin-save');
       //this.adminClose = document.getElementById('admin-cancel');
       // Make sure the admin panel is hidden
       this.adminPanel.style.display = 'none';
       adminOpen.init();
       adminClose.init();
+      adminSave.init();
     }
   };
   var adminOpen = {
@@ -188,12 +187,8 @@ $(function(){
     render: function() {
       // Visual - When the admin button is clicked
       this.adminButton.addEventListener('click', function() {
-        var cat = octopus.getCurrentCat();
-        alert(cat.name);
         // Visual - the admin area should appear
         document.getElementById('admin-container').style.display = 'block';
-        catDisplayView.render();
-        return;
       });
     }
   };
@@ -206,6 +201,57 @@ $(function(){
     render: function() {
       this.adminClose.addEventListener('click', function() {
         document.getElementById('admin-container').style.display = 'none';
+      });
+    }
+  };
+  var adminSave = {
+    init: function() {
+      this.adminSave = document.getElementById('admin-save');
+      this.adminPanel = document.getElementById('admin-container');
+      // admin panel elements
+      this.inputCatName = document.getElementById('inputCatName');
+      this.inputCatImgSrc = document.getElementById('inputCatImgSrc');
+      this.inputCatCount = document.getElementById('inputCatCount');
+      this.render();
+    },
+    render: function() {
+      this.adminSave.addEventListener('click', function() {
+        // retrieve the current cat from octopus
+        var currentCat = octopus.getCurrentCat();
+        var cats = octopus.getCats();
+        // loop over cats
+        for(i=0; i<cats.length; i++) {
+          // this is the cat we're currently looping over
+          cat = cats[i];
+            // create a new cat list item and set its text
+            elem = document.createElement('li');
+            elem.textContent = cat.name;
+            // set up click function for each cat element
+            /* Interaction - When a cat name is clicked in the list, the cat display area should update to show the data for the selected cat. */
+            elem.addEventListener('click', (function(catCopy) {
+              return function() {
+                // setCurrentCat from the octopus
+                /* 10 */
+                octopus.setCurrentCat(catCopy);
+                // render the catDisplayView
+                /* 11 */
+                catDisplayView.render();
+              };
+            })(cat));
+            // add cat element to the list
+            this.catListElem.appendChild(elem);
+        }// loop
+
+        // Visual - update currently-selected cat with the inputs values.
+        // Visual - input text cat's name
+        //currentCat.name = document.getElementById('inputCatName').value;
+        // Visual - input text cat image url
+        //document.getElementById('inputCatImgSrc').value = currentCat.imgSrc;
+        // Visual - input text the number of clicks
+        //document.getElementById('inputCatCount').value = currentCat.clickCount;
+        // Visual - close the admin panel
+        document.getElementById('admin-container').style.display = 'none';
+        console.log(currentCat.name);
       });
     }
   };
