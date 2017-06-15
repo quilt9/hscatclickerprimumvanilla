@@ -47,6 +47,8 @@ $(function(){
       catListView.init();
       /* 11 */
       catDisplayView.init();
+      /* 15 */
+      adminView.init();
     },
     /* 9 */
     getCats: function() {
@@ -67,9 +69,6 @@ $(function(){
       return model.currentCat;
     }
   };
-
-
-
 
   /* ============== VIEW ============= */
   // Visual - create a list of cats by name
@@ -150,6 +149,34 @@ $(function(){
       this.catImageElem.alt = currentCat.imgAlt;
     }
   };
+
+/* 15 */
+var adminView = {
+  init: function() {
+    this.adminButton = document.getElementById('admin-button');
+    this.adminPanel = document.getElementById('admin-panel');
+    this.inputCatName = document.getElementById('inputCatName');
+    this.inputCatImgSrc = document.getElementById('inputCatImgSrc');
+    this.inputCatCount = document.getElementById('inputCatCount');
+    // Make sure the admin panel is hidden
+    this.adminPanel.style.visibility = 'hidden';
+    // Visual - When the admin button is clicked, the admin area should appear with the inputs filled in for the currently-selected cat.
+    this.adminButton.addEventListener('click', function() {
+      document.getElementById('admin-panel').style.visibility = 'visible';
+    });
+    this.render();
+  },
+  render: function() {
+    // update the DOM elements with values from the current cat
+    var currentCat = octopus.getCurrentCat();
+    // Visual - input text cat's name
+    this.inputCatName.textContent = currentCat.name;
+    // Visual - input text cat image url
+    this.inputCatImgSrc.textContent = currentCat.imgSrc;
+    // Visual - input text the number of clicks
+    this.inputCatCount.textContent = currentCat.clickCount;
+  }
+};
 
 
   // Initialize the app

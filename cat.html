@@ -30,6 +30,13 @@
       h4 {
         margin: 3rem 0;
       }
+      label {
+        margin-right: 0.75rem;
+      }
+      .btn {
+        width: 150px;
+        margin: 3rem 0;
+      }
       .nav {
         display: block;
       }
@@ -49,6 +56,12 @@
       }
       .larger-text {
         font-size: 4.25rem;
+      }
+      .form-group {
+        margin: 0 1.5rem 0 0;
+      }
+      button.admin-button {
+        margin-right: 1.5rem;
       }
     </style>
 
@@ -78,36 +91,51 @@
             <header class="page-header col-md-8">
               <h1>Click Cat for Hope, Peace, and Happiness</h1>
             </header>
-            <article class="col-md-4">
-              <button type="button" class="toggle-button btn btn-primary btn-lg" data-toggle="button" aria-pressed="false" autocomplete="off">☰ All Our Cats</button>
+            <article class="col-md-2">
+              <button type="button" id="panel-button" class="toggle-button btn btn-primary btn-lg" data-toggle="button" aria-pressed="false" autocomplete="off">☰ All Our Cats</button>
+            </article>
+            <article class="col-md-2">
+              <button type="button" id="admin-button" class="toggle-button btn btn-info btn-lg" data-toggle="button" aria-pressed="false" autocomplete="off">Admin</button>
             </article>
           </div><!-- header -->
-        </div>
-        <div class="row catRow1">
+        </div><!-- container -->
+        <div class="row catRow">
           <div class="container">
             <div class="card card-inverse">
               <img id="cat-img" class="card-img img-fluid" src="" alt="Card responsive image">
               <div id="catainer" class="card-img-overlay">
                 <h4 class="card-title"><span id="cat-count" class="click-counter"></span> <span class="larger-text heart">&hearts;</span> <span id="cat-name"></span></h4>
-              </div>
-            </div>   
-          </div><!-- catainer1 -->
-       </div><!--catRow1-->
+              </div><!-- catainer -->
+            </div>
+          </div><!-- container -->
+        </div><!--catRow1-->
+        <div class="container">
+          <form id="admin-panel" class="form-inline">
+            <div class="form-group">
+              <label for="inputCatName">Name: </label>
+              <input type="text" class="form-control" id="inputCatName" placeholder="Jane Doe">
+            </div>
+            <div class="form-group">
+              <label for="inputCatImgSrc">Email: </label>
+              <input type="email" class="form-control" id="inputCatImgSrc" placeholder="jane.doe@example.com">
+            </div>
+            <div class="form-group">
+              <label for="inputCatCount">Count: </label>
+              <input type="text" class="form-control" id="inputCatCount" placeholder="0">
+            </div>
+            <button type="submit" class="btn btn-default admin-button">Save</button>
+            <button type="submit" class="btn btn-default admin-button">Cancel</button>
+          </form>
+        </div><!-- container -->
       </main>
     </div><!-- container-fluid -->
 
     <!-- Slider CSS -->
     <link href="dist/css/slider.css" rel="stylesheet">
-    <!-- Create cat list for panel menu -->
-    <script type="text/javascript">
-      if (document.getElementsByClassName('cat-nav').length === 0) {
-          document.getElementById('panel-list').style.display = 'none';
-      }
-    </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="dist/js/bootstrap.min.js"></script>
-    <script src="dist/js/main.min.js"></script>
+    <script src="dist/js/main.js"></script>
   </body>
 </html>
