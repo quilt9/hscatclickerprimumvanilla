@@ -154,27 +154,35 @@
 var adminView = {
   init: function() {
     this.adminButton = document.getElementById('admin-button');
-    this.adminPanel = document.getElementById('admin-panel');
+    this.adminPanel = document.getElementById('admin-container');
+    this.adminSave = document.getElementById('admin-save');
+    this.adminCancel = document.getElementById('admin-cancel');
     this.inputCatName = document.getElementById('inputCatName');
     this.inputCatImgSrc = document.getElementById('inputCatImgSrc');
     this.inputCatCount = document.getElementById('inputCatCount');
     // Make sure the admin panel is hidden
-    this.adminPanel.style.visibility = 'hidden';
-    // Visual - When the admin button is clicked, the admin area should appear with the inputs filled in for the currently-selected cat.
+    this.adminPanel.style.display = 'none';
+    // Visual - When the admin button is clicked
     this.adminButton.addEventListener('click', function() {
-      document.getElementById('admin-panel').style.visibility = 'visible';
+      // Visual - the admin area should appear
+      document.getElementById('admin-container').style.display = 'block';
     });
+    // Visual - When the cancel button in the admin area is pressed, the admin area disappears.
+    this.adminCancel.addEventListener('click', function() {
+      document.getElementById('admin-container').style.display = 'none';
+    });
+    // Visual - inputs filled in for the currently-selected cat.
     this.render();
   },
   render: function() {
     // update the DOM elements with values from the current cat
     var currentCat = octopus.getCurrentCat();
     // Visual - input text cat's name
-    this.inputCatName.textContent = currentCat.name;
+    this.inputCatName.value = currentCat.name;
     // Visual - input text cat image url
-    this.inputCatImgSrc.textContent = currentCat.imgSrc;
+    this.inputCatImgSrc.value = currentCat.imgSrc;
     // Visual - input text the number of clicks
-    this.inputCatCount.textContent = currentCat.clickCount;
+    this.inputCatCount.value = currentCat.clickCount;
   }
 };
 
