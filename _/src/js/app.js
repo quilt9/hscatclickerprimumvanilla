@@ -125,6 +125,10 @@ $(function(){
       this.catNameElem = document.getElementById('cat-name');
       this.catImageElem = document.getElementById('cat-img');
       this.countElem = document.getElementById('cat-count');
+      // admin panel elements
+      this.inputCatName = document.getElementById('inputCatName');
+      this.inputCatImgSrc = document.getElementById('inputCatImgSrc');
+      this.inputCatCount = document.getElementById('inputCatCount');
       // set up click event to cat container
       /* Interaction - The number of clicks in the cat area should be unique to each cat, and should increment when the cat's picture is clicked. */
       this.catElem.addEventListener('click', function() {
@@ -148,6 +152,13 @@ $(function(){
       // Visual - create a picture of the cat
       this.catImageElem.src = currentCat.imgSrc;
       this.catImageElem.alt = currentCat.imgAlt;
+      /* 15 */
+      // Visual - input text cat's name
+      this.inputCatName.value = currentCat.name;
+      // Visual - input text cat image url
+      this.inputCatImgSrc.value = currentCat.imgSrc;
+      // Visual - input text the number of clicks
+      this.inputCatCount.value = currentCat.clickCount;
     }
   };
 
@@ -159,9 +170,6 @@ var adminView = {
     this.adminPanel = document.getElementById('admin-container');
     this.adminSave = document.getElementById('admin-save');
     this.adminCancel = document.getElementById('admin-cancel');
-    this.inputCatName = document.getElementById('inputCatName');
-    this.inputCatImgSrc = document.getElementById('inputCatImgSrc');
-    this.inputCatCount = document.getElementById('inputCatCount');
     // Make sure the admin panel is hidden
     this.adminPanel.style.display = 'none';
     this.render();
@@ -169,12 +177,6 @@ var adminView = {
   render: function() {
     // setCurrentCat from the octopus
     var catInfo = octopus.getCurrentCat();
-    // Visual - input text cat's name
-    this.inputCatName.value = catInfo.name;
-    // Visual - input text cat image url
-    this.inputCatImgSrc.value = catInfo.imgSrc;
-    // Visual - input text the number of clicks
-    this.inputCatCount.value = catInfo.clickCount;
     // Visual - When the admin button is clicked
     this.adminButton.addEventListener('click', function() {
       // Visual - the admin area should appear
