@@ -215,19 +215,25 @@
       this.render();
     },
     render: function() {
-      this.adminSave.addEventListener('click', function() {
-        // retrieve the current cat from octopus
-        var currentCat = octopus.getCurrentCat();
-        // Visual - update currently-selected cat with the inputs values.
-        // Visual - input text cat's name
-        //currentCat.name = document.getElementById('inputCatName').value;
-        // Visual - input text cat image url
-        //document.getElementById('inputCatImgSrc').value = currentCat.imgSrc;
-        // Visual - input text the number of clicks
-        //document.getElementById('inputCatCount').value = currentCat.clickCount;
+      // create new cat variable to capture the input values
+      var newCat = {
+        name: '',
+        imgSrc: '',
+        clickCount: ''
+      };
+      // the save button
+      var saveInfo = document.getElementById('admin-save');
+
+      /* Interaction - When a cat name is clicked in the list, the cat display area should update to show the data for the selected cat. */
+      saveInfo.addEventListener('click', function() {
+        newCat.name = document.getElementById('inputCatName').value;
+        newCat.imgSrc = document.getElementById('inputCatImgSrc').value;
+        newCat.clickCount = document.getElementById('inputCatCount').value;
         // Visual - close the admin panel
         document.getElementById('admin-container').style.display = 'none';
-        console.log(currentCat.name);
+        octopus.setCurrentCat(newCat);
+        catDisplayView.render();
+        console.log(newCat);
       });
     }
   };
