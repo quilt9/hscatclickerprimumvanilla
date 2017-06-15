@@ -43,6 +43,10 @@
       .cat-catainer {
         margin-bottom: 3rem;
       }
+      .card {
+        width: 100%;
+        height: auto;
+      }
       .card-inverse .card-title {
         color: rgba(255,255,255,.85);
       }
@@ -60,8 +64,8 @@
       .form-group {
         margin: 0 1.5rem 0 0;
       }
-      button.admin-button {
-        margin-right: 1.5rem;
+      button.admin-panel-button {
+        margin-left: 1.5rem;
       }
       input {
         width: 200px;
@@ -101,38 +105,40 @@
               <button type="button" id="panel-button" class="toggle-button btn btn-primary btn-lg" data-toggle="button" aria-pressed="false" autocomplete="off">☰ All Our Cats</button>
             </article>
             <article class="col-md-2">
-              <button type="button" id="admin-button" class="toggle-button btn btn-info btn-lg" data-toggle="button" aria-pressed="false" autocomplete="off">Admin</button>
+              <button type="button" id="admin-button" class="toggle-button btn btn-info btn-lg" aria-pressed="false" autocomplete="off">Admin</button>
             </article>
           </div><!-- header -->
         </div><!-- container -->
         <div id="admin-container" class="container">
-          <form id="admin-panel" class="form-inline">
-            <div class="form-group">
-              <label for="inputCatName">Name: </label>
-              <input type="text" class="form-control" id="inputCatName">
-            </div>
-            <div class="form-group">
-              <label for="inputCatImgSrc">Image URL: </label>
-              <input type="text" class="form-control" id="inputCatImgSrc" >
-            </div>
-            <div class="form-group">
-              <label for="inputCatCount">Count: </label>
-              <input type="text" class="form-control" id="inputCatCount" >
-            </div>
-            <button type="submit" id="admin-save" class="btn btn-default admin-button">Save</button>
-            <button type="submit" id="admin-cancel" class="btn btn-default admin-button">Cancel</button>
-          </form>
+          <div class="row">
+            <form id="admin-panel" class="form-inline col-md-8">
+              <div class="form-group">
+                <label for="inputCatName">Name: </label>
+                <input type="text" class="form-control" id="inputCatName">
+              </div>
+              <div class="form-group">
+                <label for="inputCatImgSrc">Image URL: </label>
+                <input type="text" class="form-control" id="inputCatImgSrc" >
+              </div>
+              <div class="form-group">
+                <label for="inputCatCount">Count: </label>
+                <input type="text" class="form-control" id="inputCatCount" >
+              </div>
+            </form>
+            <button type="submit" id="admin-save" class="btn btn-default admin-panel-button">Save</button>
+            <button type="submit" id="admin-cancel" class="btn btn-default admin-panel-button">Cancel</button>
+          </div>
+        </div><!-- admin-container -->
+        <div class="container">
+          <div class="row catRow">
+              <div class="card card-inverse">
+                <img id="cat-img" class="card-img img-fluid" src="" alt="Card responsive image">
+                <div id="catainer" class="card-img-overlay">
+                  <h4 class="card-title"><span id="cat-count" class="click-counter"></span> <span class="larger-text heart">&hearts;</span> <span id="cat-name"></span></h4>
+                </div><!-- catainer -->
+              </div>
+          </div><!--catRow1-->
         </div><!-- container -->
-        <div class="row catRow">
-          <div class="container">
-            <div class="card card-inverse">
-              <img id="cat-img" class="card-img img-fluid" src="" alt="Card responsive image">
-              <div id="catainer" class="card-img-overlay">
-                <h4 class="card-title"><span id="cat-count" class="click-counter"></span> <span class="larger-text heart">&hearts;</span> <span id="cat-name"></span></h4>
-              </div><!-- catainer -->
-            </div>
-          </div><!-- container -->
-        </div><!--catRow1-->
       </main>
     </div><!-- container-fluid -->
 

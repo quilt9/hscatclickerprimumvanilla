@@ -48,6 +48,7 @@ $(function(){
       /* 11 */
       catDisplayView.init();
       /* 15 */
+      // initialize admin panel
       adminView.init();
     },
     /* 9 */
@@ -63,7 +64,7 @@ $(function(){
     incrumentCounter: function() {
       model.currentCat.clickCount++;
       catDisplayView.render();
-      adminView.render();
+      //adminView.render();
     },
     /* 14 */
     getCurrentCat: function() {
@@ -153,48 +154,61 @@ $(function(){
       this.catImageElem.src = currentCat.imgSrc;
       this.catImageElem.alt = currentCat.imgAlt;
       /* 15 */
+      // Visual - inputs filled in for the currently-selected cat.
       // Visual - input text cat's name
       this.inputCatName.value = currentCat.name;
       // Visual - input text cat image url
       this.inputCatImgSrc.value = currentCat.imgSrc;
       // Visual - input text the number of clicks
       this.inputCatCount.value = currentCat.clickCount;
+      console.log("Back to square one.");
     }
   };
 
-/* 15 */
-var adminView = {
-  init: function() {
-    // store pointers to our DOM elements for easy access later    
-    this.adminButton = document.getElementById('admin-button');
-    this.adminPanel = document.getElementById('admin-container');
-    this.adminSave = document.getElementById('admin-save');
-    this.adminCancel = document.getElementById('admin-cancel');
-    // Make sure the admin panel is hidden
-    this.adminPanel.style.display = 'none';
-    this.render();
-  },
-  render: function() {
-    // setCurrentCat from the octopus
-    var catInfo = octopus.getCurrentCat();
-    // Visual - When the admin button is clicked
-    this.adminButton.addEventListener('click', function() {
-      // Visual - the admin area should appear
-      document.getElementById('admin-container').style.display = 'block';
-    });
-    // Visual - inputs filled in for the currently-selected cat.
-    //this.render();
-  }
-/*
-  cancel: function() {
-    // Visual - When the cancel button in the admin area is pressed, the admin area disappears.
-    this.adminCancel.addEventListener('click', function() {
-      document.getElementById('admin-container').style.display = 'none';
-    });
-
-  }
-*/
-};
+  /* 15 */
+  var adminView = {
+    init: function() {
+      // store pointers to our DOM elements for easy access later   
+      this.adminPanel = document.getElementById('admin-container'); 
+      //this.adminSave = document.getElementById('admin-save');
+      //this.adminClose = document.getElementById('admin-cancel');
+      // Make sure the admin panel is hidden
+      this.adminPanel.style.display = 'none';
+      adminOpen.init();
+      adminClose.init();
+    }
+  };
+  var adminOpen = {
+    init: function() {
+      // store pointers to our DOM elements for easy access later    
+      this.adminButton = document.getElementById('admin-button');
+      this.adminPanel = document.getElementById('admin-container');
+      this.render();
+    },
+    render: function() {
+      // Visual - When the admin button is clicked
+      this.adminButton.addEventListener('click', function() {
+        var cat = octopus.getCurrentCat();
+        alert(cat.name);
+        // Visual - the admin area should appear
+        document.getElementById('admin-container').style.display = 'block';
+        catDisplayView.render();
+        return;
+      });
+    }
+  };
+  var adminClose = {
+    init: function() {
+      this.adminClose = document.getElementById('admin-cancel');
+      this.adminPanel = document.getElementById('admin-container');
+      this.render();
+    },
+    render: function() {
+      this.adminClose.addEventListener('click', function() {
+        document.getElementById('admin-container').style.display = 'none';
+      });
+    }
+  };
 
 
   // Initialize the app
